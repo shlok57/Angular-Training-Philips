@@ -31,7 +31,52 @@ export class DataService {
             books = books.filter(data => data.author.toLowerCase().includes(query) || data.title.toLowerCase().includes(query));
           }
           return books;
-        })
-        , catchError(this.handleError));
+        }),
+        catchError(this.handleError));
+  }
+
+  getBook(id: number): Observable<Ibook> {
+    return this.getBooks().pipe(
+      map((books: Ibook[]) => books.find(b => b.id === id)),
+      catchError(this.handleError)
+    );
+  }
+
+  getPreviousBookId(id: number): Observable<number> {
+    return this.getBooks()
+      .pipe(
+        map(
+          (books: Ibook[]) => {
+            return books[Math.max(0, books.findIndex(b => b.id === id) - 1)].id;
+          }),
+        catchError(this.handleError)
+      );
+  }
+
+  getNextBookId(id: number): Observable<number> {
+    return this.getBooks()
+      .pipe(
+        map(
+          (books: Ibook[]) => {
+            return books[Math.min(books.length - 1, books.findIndex(b => b.id === id) + 1)].id;
+          }),
+        catchError(this.handleError)
+      );
+  }
+
+  updateBook(book: Ibook): Observable<Ibook> {
+    return this._http.put<Ibook>(this._booksUrl + '/modifybook', book)
+      .pipe(catchError(this.handleError)
+      );
+  }
+
+  deleteBook(id: number): Observable<{}> {
+    return this._http.delete(`${this._booksUrl + '/deletebook'}/${id}`)
+      .pipe(catchError(this.handleError)
+      );
+  }
+
+  getNextId(): Observable<number> {
+    return this._http.get<number>(this._booksUrl + '/GetNextId').pipe(catchError(this.handleError));
   }
 }

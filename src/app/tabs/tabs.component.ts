@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Inavlink } from '../inavlink';
-import { RouterLink } from '@angular/router';
+// import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
