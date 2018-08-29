@@ -79,4 +79,9 @@ export class DataService {
   getNextId(): Observable<number> {
     return this._http.get<number>(this._booksUrl + '/GetNextId').pipe(catchError(this.handleError));
   }
+
+  canActivate(id): Observable<boolean> {
+    return this._http.get<boolean>(`${this._booksUrl + '/canactivate'}/${id}`)
+      .pipe(catchError(this.handleError));
+  }
 }
