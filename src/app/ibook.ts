@@ -1,7 +1,7 @@
 export interface Ibook {
     id: number;
     title: string;
-    author: string,
+    author: string;
     isCheckedOut: boolean;
     rating: number;
 }

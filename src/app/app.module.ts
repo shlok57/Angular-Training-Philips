@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatListModule, MatCardModule, MatSlideToggleModule, MatDialogModule, MatIconModule, MatInputModule, MatSnackBarModule,
-          MatTabsModule, MatButtonModule, MatLineModule, MatToolbarModule } from '@angular/material';
+import {
+  MatListModule, MatCardModule, MatSlideToggleModule, MatDialogModule, MatIconModule, MatInputModule, MatSnackBarModule,
+  MatTabsModule, MatButtonModule, MatLineModule, MatToolbarModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
@@ -11,6 +13,9 @@ import { AboutComponent } from './about/about.component';
 import { CollectionComponent } from './collection/collection.component';
 import { RatingCategoryPipe } from './pipes/rating-category.pipe';
 import { RatingComponent } from './rating/rating.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TabsComponent } from './tabs/tabs.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import { RatingComponent } from './rating/rating.component';
     AboutComponent,
     CollectionComponent,
     RatingCategoryPipe,
-    RatingComponent
+    RatingComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,9 @@ import { RatingComponent } from './rating/rating.component';
     MatLineModule,
     MatInputModule,
     MatToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
