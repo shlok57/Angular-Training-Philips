@@ -7,8 +7,7 @@ import { BookGuardService } from './guards/book-guard.service';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
-  { path: 'collection', component: CollectionComponent },
-  { path: 'collection/:id', canActivate: [BookGuardService], component: BookDetailComponent },
+  { path: 'collection', loadChildren: './collection/collection.module#CollectionModule' },
   { path: '', redirectTo: '/about', pathMatch: 'full' },
 ];
 

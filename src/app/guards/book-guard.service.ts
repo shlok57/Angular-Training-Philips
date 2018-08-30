@@ -13,7 +13,7 @@ export class BookGuardService {
   constructor(private _router: Router, private _dataService: DataService) { }
 
   canActivate(route: ActivatedRouteSnapshot) {
-    const id = +route.url[1].path;
+    const id = +route.url[0].path;
     if (isNaN(id)) {
       this._router.navigate(['/collection']);
       return false;

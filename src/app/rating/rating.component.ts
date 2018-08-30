@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Ibook } from '../ibook';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'my-rating',
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.css']
