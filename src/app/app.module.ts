@@ -18,6 +18,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookGuardService } from './guards/book-guard.service';
+import { NewBookComponent } from './new-book/new-book.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BookGuardService } from './guards/book-guard.service';
     RatingCategoryPipe,
     RatingComponent,
     TabsComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    NewBookComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { BookGuardService } from './guards/book-guard.service';
     AppRoutingModule
   ],
   providers: [BookGuardService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NewBookComponent]
 })
 export class AppModule { }
